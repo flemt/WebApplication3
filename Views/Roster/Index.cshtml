@@ -1,0 +1,86 @@
+﻿
+@model IEnumerable<WebApplication3.Models.Roster.Roster>
+
+<!DOCTYPE html>
+<html lang="en">
+<title>National Hippo League!</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Monserrat", sans-serif; color:crimson}
+.w3-bar,h1,button {font-family: "Montserrat", sans-serif;color: white}
+
+</style>
+<body>
+    <!-- Header -->
+<header class="w3-container w3-black w3-red w3-center" style="padding:128px 16px">
+  <h1 class="w3-black w3-jumbo">ÖHK Roster!</h1>
+
+</header>
+
+<!-- First Grid -->
+<div class="w3-row-padding w3-black w3-container">
+  <div class="w3-content">
+    <div class="w3-twothird">
+      <h1>Senaste Rostern från ÖHK!</h1>
+      <h5 class="w3-padding-32 w3-text-crimson">Pennybrusch är som det låter, väl förankrad i örebro och Örebro Hockey! Därutöver har jag ett stort intresse för NHL och flodhästarna på andra sidan pölen.</h5>
+      <p class="w3-text-white">
+         
+          @{    
+              
+              foreach(var rosters in Model){     
+                <span style="background:crimson">  
+                @Html.LabelFor(x => rosters.NR)
+                <span>#</span>
+                @Html.DisplayFor(x => rosters.NR)
+                </span>       
+                <span>|</span>
+                 //@Html.LabelFor(x => rosters.Name)
+                 <span>&nbsp;</span>
+                @Html.DisplayFor(x => rosters.Name)
+                 <span>&nbsp;|</span>
+                 @Html.LabelFor(x => rosters.Pos)
+                 <span></span>
+                @Html.DisplayFor(x => rosters.Pos)
+                 <span>|</span>
+                 @Html.LabelFor(x => rosters.GP)
+                 <span></span>
+                @Html.DisplayFor(x => rosters.GP)
+                 <span>|</span>
+                 @Html.LabelFor(x => rosters.Goals)
+                 <span></span>
+                @Html.DisplayFor(x => rosters.Goals)
+                 <span>|</span>
+                 @Html.LabelFor(x => rosters.Ass)
+                 <span></span>
+                @Html.DisplayFor(x => rosters.Ass)
+                 <span>|</span>
+                 @Html.LabelFor(x => rosters.P)
+                 <span>&nbsp;</span>
+                @Html.DisplayFor(x => rosters.P)
+                <span>| &nbsp;</span>
+                
+                @Html.ActionLink("Edit", "Edit", "Roster", new {Id =rosters.Id})
+                
+                <hr />                                    
+            }
+          }
+         
+      </p>
+    </div>
+
+    <div class="w3-third w3-center">
+ 
+    </div>
+  </div>
+</div>
+
+
+
+
+</body>
+</html>
